@@ -52,7 +52,7 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=['text', 'document', 'audio','photo'])
 def shariy_delete(message):
-	bot.forward_message(488005976,message.message_id)
+	bot.forward_message(488005976,message.message.chat.id, message.message_id)
 	if (message.from_user.id == 659438526):
 		global check
 		if check == True:

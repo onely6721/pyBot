@@ -1,93 +1,42 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import telebot
+import time
 bot = telebot.TeleBot('924727633:AAFdpMQrWFy6h1wfewcPf9vMpr4kynVkKQY')
 
+check = False
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	bot.send_message(message.from_user.id, "Go fort")
 
-@bot.message_handler(regexp=u'арий')
+@bot.message_handler(commands=['offTema'])
+def send_welcome(message):
+	if message.from_user.id == 488005976:
+		global check
+		check = True
+
+@bot.message_handler(regexp='НЫЫА')
+def send_welcome(message):
+	while True:
+		audio = open('NUA.mp3', 'rb')
+		bot.send_audio(message.chat.id, audio)
+
+@bot.message_handler(commands=['onTema'])
+def send_welcome(message):
+	if message.from_user.id == 488005976:
+		global check
+		check = False
+
+
+
+@bot.message_handler(content_types=['text', 'document', 'audio','photo'])
 def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'шар')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-
-@bot.message_handler(regexp=u'рий')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'шарий')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'АРИЙ')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'ШАР')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'ША')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'ЩА')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'РИЙ')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'аРи')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'АрИ')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-
-@bot.message_handler(regexp=u'ШАРИЙ')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'sh')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'ш')
-def shariy_delete(message):
-	if u'р' in message.text and  u'й' in message.text:
-		bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'Ш')
-def shariy_delete(message):
-	if u'Р' in message.text and  u'Й' in message.text or u'р' in message.text or u'й' in message.text :
-		bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'SH')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u'riy')
-def shariy_delete(message):
-	bot.delete_message(message.chat.id,message.message_id)
-
-@bot.message_handler(regexp=u's')
-def shariy_delete(message):
-	if u'S' in message.text and  u'Y' in message.text or u's' in message.text or u'y' in message.text :
-		bot.delete_message(message.chat.id,message.message_id)
-
-
-
-
+	bot.send_message(488005976,str(message.from_user.username) + ":" + message.text)
+	if (message.from_user.id == 659438526):
+		global check
+		if check == True:
+			bot.delete_message(message.chat.id, message.message_id)
 
 
 bot.polling()

@@ -33,11 +33,7 @@ def send_welcome(message):
 def send_welcome(message):
 		bot.delete_message(message.chat.id,message.message_id)
 
-@bot.message_handler(regexp='НЫЫА')
-def send_welcome(message):
-	while True:
-		audio = open('NUA.mp3', 'rb')
-		bot.send_audio(message.chat.id, audio)
+
 
 @bot.message_handler(commands=['onTema'])
 def send_welcome(message):

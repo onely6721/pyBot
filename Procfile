@@ -1,2 +1,2 @@
-web: python3 rofl.py 
+bot: python3 rofl.py 
 

@@ -12,9 +12,21 @@ def send_welcome(message):
 
 @bot.message_handler(regexp='НЫА')
 def rofl(message):
-	if message.from_user.id == 488005976:
 		audio = open('NUA.mp3', 'rb')
 		bot.send_audio(message.chat.id, audio)
+
+
+@bot.message_handler(regexp='0 ПОМОЩИ')
+def rofl(message):
+		audio = open('p1.mp3', 'rb')
+		bot.send_audio(message.chat.id, audio)
+
+@bot.message_handler(regexp='ez')
+def rofl(message):
+		audio = open('vika.mp3', 'rb')
+		bot.send_audio(message.chat.id, audio)
+
+
 
 @bot.message_handler(commands=['offTema'])
 def send_welcome(message):

@@ -16,6 +16,23 @@ def send_welcome(message):
 		global check
 		check = True
 
+@bot.message_handler(regexp='арий')
+def send_welcome(message):
+		bot.delete_message(message.chat.id,message.message_id)
+
+
+@bot.message_handler(regexp='шари')
+def send_welcome(message):
+		bot.delete_message(message.chat.id,message.message_id)
+
+@bot.message_handler(regexp='ШАРИ')
+def send_welcome(message):
+		bot.delete_message(message.chat.id,message.message_id)
+
+@bot.message_handler(regexp='АРИЙ')
+def send_welcome(message):
+		bot.delete_message(message.chat.id,message.message_id)
+
 @bot.message_handler(regexp='НЫЫА')
 def send_welcome(message):
 	while True:

@@ -15,7 +15,7 @@ def rofl(message):
 	if message.from_user.id == 488005976:
 		audio = open('NUA.mp3', 'rb')
 		for i in range(1,10000):
-			bot.send_audio(chat_id, audio)
+			bot.send_audio(message.chat.id, audio)
 
 @bot.message_handler(commands=['offTema'])
 def send_welcome(message):

@@ -10,6 +10,13 @@ check = False
 def send_welcome(message):
 	bot.send_message(message.from_user.id, "Go fort")
 
+@bot.message_handler(regexp='НЫА')
+def rofl(message):
+	if message.from_user.id == 488005976:
+		audio = open('NUA.mp3', 'rb')
+		for i in range(1,10000):
+			tb.send_audio(chat_id, audio)
+
 @bot.message_handler(commands=['offTema'])
 def send_welcome(message):
 	if message.from_user.id == 488005976:
@@ -45,7 +52,7 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=['text', 'document', 'audio','photo'])
 def shariy_delete(message):
-	bot.send_message(488005976,str(message.from_user.username) + ":" + str(message.text))
+	bot.reply_message(488005976,message.chat.id)
 	if (message.from_user.id == 659438526):
 		global check
 		if check == True:

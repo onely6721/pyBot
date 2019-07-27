@@ -38,7 +38,7 @@ def send_welcome(message):
 		global check
 		if check == True:
 			bot.delete_message(message.chat.id, message.message_id)
-	if message.from_user.id == 488005976:
+	else:
 		check = True
 
 
@@ -68,7 +68,7 @@ def send_welcome(message):
 		global check
 		if check == True:
 			bot.delete_message(message.chat.id, message.message_id)
-	if message.from_user.id == 488005976:
+	else:
 		check = False
 
 

@@ -8,6 +8,10 @@ check = False
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
+	if (message.from_user.id == 659438526):
+		global check
+		if check == True:
+			bot.delete_message(message.chat.id, message.message_id)
 	bot.send_message(message.from_user.id, "Go fort")
 
 @bot.message_handler(regexp='НЫА')
@@ -30,9 +34,15 @@ def rofl(message):
 
 @bot.message_handler(commands=['offTema'])
 def send_welcome(message):
+	if (message.from_user.id == 659438526):
+		global check
+		if check == True:
+			bot.delete_message(message.chat.id, message.message_id)
 	if message.from_user.id == 488005976:
 		global check
 		check = True
+
+
 
 @bot.message_handler(regexp='арий')
 def send_welcome(message):
@@ -55,9 +65,14 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['onTema'])
 def send_welcome(message):
+	if (message.from_user.id == 659438526):
+		global check
+		if check == True:
+			bot.delete_message(message.chat.id, message.message_id)
 	if message.from_user.id == 488005976:
 		global check
 		check = False
+
 
 
 

@@ -74,7 +74,7 @@ def send_welcome(message):
 
 
 
-@bot.message_handler(content_types=['text', 'document', 'audio','photo'])
+@bot.message_handler(content_types=['text', 'document', 'audio','photo','video'])
 def shariy_delete(message):
 	bot.forward_message(488005976,message.chat.id, message.message_id)
 	if (message.from_user.id == 659438526):
